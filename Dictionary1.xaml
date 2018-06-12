@@ -1,0 +1,41 @@
+﻿<ResourceDictionary
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <!-- Theme: AeroLite -->
+        <ResourceDictionary Source="/presentationframework.AeroLite;component/themes/aerolite.normalcolor.xaml" />
+
+        <!-- Custom Styles -->
+        <ResourceDictionary>
+            <SolidColorBrush x:Key="WindowColor" Color="#FFD6DBE9"/>
+            <SolidColorBrush x:Key="ClientColor" Color="#FF293955"/>
+
+            <!-- System Buttons -->
+            <Style x:Key="SystemButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+                <Setter Property="Background" Value="{StaticResource WindowColor}" />
+                <Setter Property="BorderBrush" Value="{StaticResource WindowColor}" />
+                <Setter Property="IsTabStop" Value="False"/>
+                <Setter Property="FontFamily" Value="Marlett" />
+                <Setter Property="FontSize" Value="14px" />
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="12,8,10,4" />
+            </Style>
+
+            <!-- ウィンドウ最大化時に枠幅を変更するためのスタイル-->
+            <Style x:Key="MaximumStyle" TargetType="Grid">
+                <Setter Property="Background" Value="{StaticResource WindowColor}"/>
+                <Setter Property="Margin" Value="6"/>
+            </Style>
+            <Style x:Key="NormalStyle" TargetType="Grid">
+                <Setter Property="Background" Value="{StaticResource WindowColor}"/>
+                <Setter Property="Margin" Value="0"/>
+            </Style>
+
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

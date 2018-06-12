@@ -77,13 +77,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DependencyObjectExtensions.cs" />
-    <Compile Include="interop\ClassStyles.cs" />
-    <Compile Include="interop\Dxva2.cs" />
-    <Compile Include="interop\User32.cs" />
-    <Compile Include="interop\Win32.cs" />
-    <Compile Include="interop\WindowStyles.cs" />
-    <Compile Include="Win32.cs" />
     <Page Include="Dictionary1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

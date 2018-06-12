@@ -8,7 +8,7 @@
         StateChanged="SampleWindow_StateChanged"
         Title="MainWindow" Height="450" Width="800" Margin="10" FontFamily="Meiryo UI" AllowsTransparency="True" WindowStyle="None" Background="Black">
     <WindowChrome.WindowChrome>
-        <WindowChrome UseAeroCaptionButtons="False" CaptionHeight="24" ResizeBorderThickness="8" />
+        <WindowChrome UseAeroCaptionButtons="False" GlassFrameThickness="0" CaptionHeight="24" ResizeBorderThickness="8" />
     </WindowChrome.WindowChrome>
     <Window.Resources>
         <ResourceDictionary Source="Dictionary1.xaml" />

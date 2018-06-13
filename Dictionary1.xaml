@@ -9,20 +9,39 @@
 
         <!-- Custom Styles -->
         <ResourceDictionary>
-            <SolidColorBrush x:Key="WindowColor" Color="#FFD6DBE9"/>
-            <SolidColorBrush x:Key="ClientColor" Color="#FF293955"/>
+            <SolidColorBrush x:Key="WindowColor" Color="#FF2D2D30"/>
+            <SolidColorBrush x:Key="ClientColor" Color="#FF1E1E1E"/>
+            <SolidColorBrush x:Key="FontColor" Color="#FFF4F4F4"/>
 
             <!-- System Buttons -->
             <Style x:Key="SystemButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
                 <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
                 <Setter Property="Background" Value="{StaticResource WindowColor}" />
+                <Setter Property="Foreground" Value="{StaticResource FontColor}" />
                 <Setter Property="BorderBrush" Value="{StaticResource WindowColor}" />
                 <Setter Property="IsTabStop" Value="False"/>
                 <Setter Property="FontFamily" Value="Marlett" />
                 <Setter Property="FontSize" Value="14px" />
                 <Setter Property="HorizontalContentAlignment" Value="Center"/>
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
-                <Setter Property="Padding" Value="12,8,10,4" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}"
+                                    Padding="12, 8, 12, 8">
+                                <ContentPresenter/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="true">
+                        <Setter Property="Background" Value="#FF3C3C3C"/>
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Background" Value="#FF0470A2"/>
+                    </Trigger>
+                </Style.Triggers>
             </Style>
 
             <!-- ウィンドウ最大化時に枠幅を変更するためのスタイル-->

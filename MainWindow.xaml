@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfTest"
         mc:Ignorable="d"
         StateChanged="SampleWindow_StateChanged"
-        Title="MainWindow" Height="450" Width="800" Margin="10" FontFamily="Meiryo UI" AllowsTransparency="True" WindowStyle="None" Background="Black">
+        Title="MainWindow" Height="450" Width="800" Margin="10" FontFamily="Meiryo UI" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" Foreground="{x:Null}">
     <WindowChrome.WindowChrome>
         <WindowChrome UseAeroCaptionButtons="False" GlassFrameThickness="0" CaptionHeight="24" ResizeBorderThickness="8" />
     </WindowChrome.WindowChrome>
@@ -15,19 +15,24 @@
     </Window.Resources>
     <Border BorderBrush="Black" BorderThickness="1">
         <Grid x:Name="BaseGrid" Style="{StaticResource NormalStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24*"/>
+                <ColumnDefinition Width="127*"/>
+                <ColumnDefinition Width="647*"/>
+            </Grid.ColumnDefinitions>
 
             <!-- タイトルバー領域 -->
-            <Image x:Name="WindowIcon" Margin="4,4,0,0" Source="icon.png" Stretch="Fill" Width="32" Height="32" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBlock x:Name="WindowTitle" HorizontalAlignment="Left" Margin="44,12,0,0" Text="Sample Application" VerticalAlignment="Top"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Image x:Name="WindowIcon" Margin="4,4,0,0" Source="icon.png" Stretch="Fill" Width="32" Height="32" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="WindowTitle" HorizontalAlignment="Left" Margin="20,12,0,0" Text="Sample Application" VerticalAlignment="Top" Foreground="#FFF4F4F4" Grid.ColumnSpan="2" Grid.Column="1"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="2">
                 <Button x:Name="MinimizeButton" Content="0" Style="{StaticResource SystemButton}" FontWeight="Bold" Click="MinimizeButton_Click" />
                 <Button x:Name="MaximizeButton" Content="1" Style="{StaticResource SystemButton}" Click="MaximizeButton_Click" />
                 <Button x:Name="CloseButton" Content="r" Style="{StaticResource SystemButton}" Click="CloseButton_Click" />
             </StackPanel>
 
             <!-- クライアント領域 -->
-            <Grid x:Name="ClientGrid" Margin="0,40,0,0" Background="{StaticResource ClientColor}">
-                <Menu Height="24" VerticalAlignment="Top" Background="{StaticResource WindowColor}">
+            <Grid x:Name="ClientGrid" Margin="0,40,0,0" Background="{StaticResource ClientColor}" Grid.ColumnSpan="3">
+                <Menu Height="24" VerticalAlignment="Top" Background="{StaticResource WindowColor}" Foreground="{StaticResource FontColor}">
                     <MenuItem Header="ファイル(_C)"/>
                     <MenuItem Header="編集(_E)"/>
                     <MenuItem Header="ヘルプ(_H)"/>

@@ -1,5 +1,4 @@
-﻿
-<!-- WindowStyleをNoneにしているとWindowを最大化した際にタスクバーの下に埋もれているWindowが
+﻿<!-- WindowStyleをNoneにしているとWindowを最大化した際にタスクバーの下に埋もれているWindowが
      タスクバーの上に乗ってしまいます。 -->
 <Window x:Class="WpfTest.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -23,15 +22,17 @@
     <Border BorderBrush="Black" BorderThickness="0">
         <Grid x:Name="BaseGrid" Style="{StaticResource NormalStyle}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="24*"/>
-                <ColumnDefinition Width="127*"/>
-                <ColumnDefinition Width="647*"/>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
 
             <!-- タイトルバー領域 -->
-            <Image x:Name="WindowIcon" Margin="4,4,0,0" Source="icon.png" Stretch="Fill" Width="32" Height="32" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-            <TextBlock x:Name="WindowTitle" HorizontalAlignment="Left" Margin="20,12,0,0" Text="Sample Application" VerticalAlignment="Top" Foreground="#FFF4F4F4" Grid.ColumnSpan="2" Grid.Column="1"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Height="32" Width="256" Margin="0,5,0,0" Grid.ColumnSpan="2">
+                <Image x:Name="WindowIcon" Margin="8, 0, 0, 0" Source="Reources/icon.32.png" Stretch="Fill" Width="32" Height="32" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
+                <TextBlock x:Name="WindowTitle" HorizontalAlignment="Left" Margin="10,0,0,0" Text="Sample Application" VerticalAlignment="Center" Foreground="#FFF4F4F4" Grid.Column="0" Height="15" Width="128"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="2" Height="30" Width="114">
                 <Button x:Name="MinimizeButton" Content="0" Style="{StaticResource SystemButton}" FontWeight="Bold" Click="MinimizeButton_Click" />
                 <Button x:Name="MaximizeButton" Content="1" Style="{StaticResource SystemButton}" Click="MaximizeButton_Click" />
                 <Button x:Name="CloseButton" Content="r" Style="{StaticResource SystemButton}" Click="CloseButton_Click" />

@@ -22,9 +22,15 @@ namespace WpfTest
     /// </summary>
     public partial class MainWindow : Window
     {
+        Thickness normalThickness;
+        Thickness maxThickness;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            normalThickness = this.Chrome.ResizeBorderThickness;
+            maxThickness = new Thickness(0);
         }
 
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
@@ -51,11 +57,22 @@ namespace WpfTest
             {
                 this.BaseGrid.Style = (Style)(this.Resources["MaximumStyle"]);
                 this.MaximizeButton.Content = "2";
+
+                // 最大化したらそもそもウィンドウのリサイズはないですし、
+                // トップをドラッグして最大化の解除もできません。
+                // そのため最大化したら0を代入しておきます。
+                this.Chrome.ResizeBorderThickness = maxThickness;
+
+                // 最大化したらキャプションの大きさがthicknessのぶん少なくなるため、
+                // 無理やり足しています。
+                this.Chrome.CaptionHeight += normalThickness.Top;
             }
             else
             {
                 this.BaseGrid.Style = (Style)(this.Resources["NormalStyle"]);
                 this.MaximizeButton.Content = "1";
+                this.Chrome.ResizeBorderThickness = normalThickness;
+                this.Chrome.CaptionHeight -= normalThickness.Top;
             }
         }
     }
